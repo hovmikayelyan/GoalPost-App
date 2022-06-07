@@ -16,6 +16,7 @@
 		1576C93F2843E18A00A6BB2B /* goalpost_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1576C93D2843E18A00A6BB2B /* goalpost_app.xcdatamodeld */; };
 		1576C9412843E18F00A6BB2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1576C9402843E18F00A6BB2B /* Assets.xcassets */; };
 		1576C9442843E18F00A6BB2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1576C9422843E18F00A6BB2B /* LaunchScreen.storyboard */; };
+		15A740C6284F379C00C75CAA /* FinishGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A740C5284F379C00C75CAA /* FinishGoalVC.swift */; };
 		15F01688284DD777005964EB /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F01687284DD777005964EB /* UIViewControllerExt.swift */; };
 		15F0168A284DDC14005964EB /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F01689284DDC14005964EB /* UIViewExt.swift */; };
 		15F0168C284DE0AD005964EB /* UIButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0168B284DE0AD005964EB /* UIButtonExt.swift */; };
@@ -33,6 +34,7 @@
 		1576C9402843E18F00A6BB2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1576C9432843E18F00A6BB2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1576C9452843E18F00A6BB2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15A740C5284F379C00C75CAA /* FinishGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishGoalVC.swift; sourceTree = "<group>"; };
 		15F01687284DD777005964EB /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		15F01689284DDC14005964EB /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		15F0168B284DE0AD005964EB /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				1576C9382843E18A00A6BB2B /* GoalsVC.swift */,
 				155CE177284D016D00627144 /* CreateGoalVC.swift */,
+				15A740C5284F379C00C75CAA /* FinishGoalVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				1576C9372843E18A00A6BB2B /* AppDelegate.swift in Sources */,
 				15F01688284DD777005964EB /* UIViewControllerExt.swift in Sources */,
 				15F0168C284DE0AD005964EB /* UIButtonExt.swift in Sources */,
+				15A740C6284F379C00C75CAA /* FinishGoalVC.swift in Sources */,
 				1576C93F2843E18A00A6BB2B /* goalpost_app.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
