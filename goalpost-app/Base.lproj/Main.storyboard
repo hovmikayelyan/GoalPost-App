@@ -137,18 +137,40 @@
                                                     <color key="textColor" red="0.42745098040000001" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIf-84-csF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL COMPLETE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1N-Sv-9o8">
+                                                            <rect key="frame" x="56.5" y="14.5" width="262.5" height="41"/>
+                                                            <color key="backgroundColor" red="0.9991911054" green="0.83101826909999998" blue="0.1789256632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="30"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.9991911054" green="0.83101826909999998" blue="0.1789256632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="a1N-Sv-9o8" firstAttribute="centerY" secondItem="wIf-84-csF" secondAttribute="centerY" id="8h5-P2-Cw5"/>
+                                                        <constraint firstItem="a1N-Sv-9o8" firstAttribute="centerX" secondItem="wIf-84-csF" secondAttribute="centerX" id="v1D-0D-a3T"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="wIf-84-csF" secondAttribute="bottom" id="6uT-Yk-Nzg"/>
                                                 <constraint firstItem="0VD-li-Skq" firstAttribute="top" secondItem="GIx-SB-NNp" secondAttribute="top" constant="8" id="967-48-z1j"/>
                                                 <constraint firstAttribute="trailing" secondItem="0VD-li-Skq" secondAttribute="trailing" constant="8" id="HaV-td-JGj"/>
                                                 <constraint firstAttribute="bottom" secondItem="0VD-li-Skq" secondAttribute="bottom" constant="8" id="P7v-Qp-y4X"/>
                                                 <constraint firstAttribute="bottom" secondItem="J3p-sT-hPy" secondAttribute="bottom" id="QPh-fK-BHQ"/>
                                                 <constraint firstItem="0VD-li-Skq" firstAttribute="leading" secondItem="J3p-sT-hPy" secondAttribute="trailing" constant="10" id="QqY-wn-rQR"/>
                                                 <constraint firstItem="J3p-sT-hPy" firstAttribute="leading" secondItem="GIx-SB-NNp" secondAttribute="leading" constant="10" id="SWU-G4-nlA"/>
+                                                <constraint firstItem="wIf-84-csF" firstAttribute="leading" secondItem="GIx-SB-NNp" secondAttribute="leading" id="UCx-v0-2VP"/>
+                                                <constraint firstItem="wIf-84-csF" firstAttribute="top" secondItem="GIx-SB-NNp" secondAttribute="top" id="pTR-ro-gYg"/>
+                                                <constraint firstAttribute="trailing" secondItem="wIf-84-csF" secondAttribute="trailing" id="qyj-tB-cnI"/>
                                                 <constraint firstItem="J3p-sT-hPy" firstAttribute="top" secondItem="GIx-SB-NNp" secondAttribute="top" id="sp0-XH-mlW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="completionView" destination="wIf-84-csF" id="9pC-Yf-G0r"/>
                                             <outlet property="goalDescriptionLbl" destination="AbW-S0-yqf" id="SP2-7l-16V"/>
                                             <outlet property="goalProgressLbl" destination="0VD-li-Skq" id="oaE-qQ-0kk"/>
                                             <outlet property="goalTypeLbl" destination="YZX-WK-aUs" id="fIY-aH-Gdh"/>
