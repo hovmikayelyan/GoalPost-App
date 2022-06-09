@@ -15,6 +15,9 @@ let appDelegate = UIApplication.shared.delegate as? AppDelegate
 class GoalsVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var undoView: UIView!
+    @IBOutlet weak var undoViewLbl: UILabel!
     
     var goals: [Goal] = []
     
@@ -28,7 +31,6 @@ class GoalsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchCoreDataObjects()
-        
         tableView.reloadData()
     }
     
@@ -49,7 +51,33 @@ class GoalsVC: UIViewController {
         guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else { return }
         presentDetail(createGoalVC)
     }
+    
+    
+    @IBAction func undoBtnWasPressed(_ sender: Any) {
+        self.undoManager()
+        self.fetchCoreDataObjects()
+        self.tableView.reloadData()
+    }
 }
+
+extension GoalsVC {
+    func enableUndoView(type: String) {
+        if (type == "delete") {
+            self.undoViewLbl.text = "Goal Removed"
+            self.undoView.backgroundColor = #colorLiteral(red: 1, green: 0.2964266086, blue: 0.05206752638, alpha: 1)
+        } else if (type == "create") {
+            self.undoViewLbl.text = "Goal Created"
+            self.undoView.backgroundColor = #colorLiteral(red: 0.6980392157, green: 0.8666666667, blue: 0.6862745098, alpha: 1)
+        }
+        
+        self.undoView.isHidden = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.undoView.isHidden = true
+        }
+    }
+}
+
 
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,6 +107,8 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
             self.removeGoal(atIndexPath: indexPath)
             self.fetchCoreDataObjects()
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            self.enableUndoView(type: "delete")
         }
         
         let addAction = UITableViewRowAction(style: .normal, title: "ADD 1") { (rowAction, indexPath) in
@@ -114,14 +144,17 @@ extension GoalsVC {
         
     }
     
-    
     func removeGoal(atIndexPath indexPath: IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         
+        managedContext.undoManager = UndoManager()
+        managedContext.undoManager?.beginUndoGrouping()
+
         managedContext.delete(goals[indexPath.row])
         
         do {
             try managedContext.save()
+            managedContext.undoManager?.endUndoGrouping()
             print("Successfully removed goal.")
         }
         catch {
@@ -145,10 +178,24 @@ extension GoalsVC {
         
    
     }
+    
+    func undoManager() {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        managedContext.undoManager?.undo()
+        
+        do {
+            try managedContext.save()
+            print("Successfully Undo Progress goal!")
+            self.undoView.isHidden = true
+            
+        } catch {
+            
+            debugPrint("Could not undo :\(error.localizedDescription)")
+            
+        }
+        
+    }
 }
-
-
-
 
 
 

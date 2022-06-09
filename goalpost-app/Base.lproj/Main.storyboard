@@ -178,10 +178,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-je-XqD">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Removed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BP3-40-TJe">
+                                        <rect key="frame" x="10" y="12" width="130.5" height="26"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwK-Y3-sgI">
+                                        <rect key="frame" x="293" y="4.5" width="67" height="41"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="21"/>
+                                        <state key="normal" title="UNDO">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="undoBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ygC-YC-RY5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.29642660862741066" blue="0.052067526383138829" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hwK-Y3-sgI" firstAttribute="centerY" secondItem="h8c-je-XqD" secondAttribute="centerY" id="3Xt-AT-vO9"/>
+                                    <constraint firstAttribute="trailing" secondItem="hwK-Y3-sgI" secondAttribute="trailing" constant="15" id="E9o-Wq-RPr"/>
+                                    <constraint firstItem="BP3-40-TJe" firstAttribute="leading" secondItem="h8c-je-XqD" secondAttribute="leading" constant="10" id="amV-EX-PEO"/>
+                                    <constraint firstAttribute="height" constant="50" id="ggW-tA-nTF"/>
+                                    <constraint firstItem="BP3-40-TJe" firstAttribute="centerY" secondItem="h8c-je-XqD" secondAttribute="centerY" id="hSf-aY-gRl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UA9-uc-NBg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="685-TN-6iy"/>
+                            <constraint firstAttribute="trailing" secondItem="h8c-je-XqD" secondAttribute="trailing" id="8MZ-f7-yeQ"/>
                             <constraint firstItem="9TG-YD-j8e" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="MCO-AV-15U"/>
                             <constraint firstItem="QHV-zH-59Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rpj-rN-2gQ"/>
                             <constraint firstItem="UA9-uc-NBg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UoW-zj-q89"/>
@@ -190,11 +220,15 @@
                             <constraint firstItem="9TG-YD-j8e" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cfu-BS-4wl"/>
                             <constraint firstItem="9TG-YD-j8e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nlM-nQ-zH1"/>
                             <constraint firstItem="UA9-uc-NBg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="q11-js-F1Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="h8c-je-XqD" secondAttribute="bottom" id="rxo-6U-MGA"/>
+                            <constraint firstItem="h8c-je-XqD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wyj-qZ-hMj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="9TG-YD-j8e" id="Nm7-EL-MLi"/>
+                        <outlet property="undoView" destination="h8c-je-XqD" id="r62-OM-Hd6"/>
+                        <outlet property="undoViewLbl" destination="BP3-40-TJe" id="tz4-Vi-0ql"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

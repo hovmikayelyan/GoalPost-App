@@ -28,7 +28,6 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func createGoalBtnWasPressed(_ sender: Any) {
-        //Pass Data into Core Data Goal Model
         if pointsTextField.text != "" {
             self.save { (complete) in
                 dismiss(animated: true, completion: nil)
