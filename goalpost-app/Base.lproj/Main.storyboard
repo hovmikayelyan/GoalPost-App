@@ -377,7 +377,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yf-Wt-voI">
-                                <rect key="frame" x="0.0" y="20" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRb-BS-fID">
                                         <rect key="frame" x="138" y="35" width="99" height="25"/>
@@ -414,7 +414,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HjI-xI-hNj">
-                                <rect key="frame" x="20" y="110" width="335" height="110"/>
+                                <rect key="frame" x="20" y="90" width="335" height="110"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many points until complete?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2P5-OV-KMF">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="25"/>
@@ -437,10 +437,10 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Z7-Af-Y39">
-                                <rect key="frame" x="0.0" y="228" width="375" height="439"/>
+                                <rect key="frame" x="0.0" y="208" width="375" height="459"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtE-AB-DMZ">
-                                        <rect key="frame" x="0.0" y="389" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="409" width="375" height="50"/>
                                         <color key="backgroundColor" red="0.9991911054" green="0.83101826909999998" blue="0.1789256632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="7dp-ke-C8n"/>
@@ -471,7 +471,7 @@
                             <constraint firstItem="jGI-vN-0j6" firstAttribute="trailing" secondItem="9Z7-Af-Y39" secondAttribute="trailing" id="J5b-SL-wp3"/>
                             <constraint firstItem="6yf-Wt-voI" firstAttribute="trailing" secondItem="jGI-vN-0j6" secondAttribute="trailing" id="RWO-Jh-ADb"/>
                             <constraint firstItem="jGI-vN-0j6" firstAttribute="bottom" secondItem="9Z7-Af-Y39" secondAttribute="bottom" id="cLg-Ha-lZF"/>
-                            <constraint firstItem="6yf-Wt-voI" firstAttribute="top" secondItem="jGI-vN-0j6" secondAttribute="top" id="gh5-jv-9re"/>
+                            <constraint firstItem="6yf-Wt-voI" firstAttribute="top" secondItem="x2d-Ll-Jyi" secondAttribute="top" id="gh5-jv-9re"/>
                             <constraint firstItem="6yf-Wt-voI" firstAttribute="leading" secondItem="jGI-vN-0j6" secondAttribute="leading" id="hpB-HT-yXi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jGI-vN-0j6"/>
