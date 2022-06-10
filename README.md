@@ -1,6 +1,9 @@
 # GoalPost-App
 A Coursera-Project, simple iOS App with the basics of working with Core Data in iOS.
 
+GoalPost is a goal-setting and goal management app. You can create SMART (short term and long term) goals. You can also keep track of habits with daily check marks and goal journal features.
+
+///
 Having data to present in apps is important. But it can be equally important to know how to persist the data to a phone even after the app is closed. 
 
 In this module, I learned how to use Core Data to build more robust, data-driven applications.
