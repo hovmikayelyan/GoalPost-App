@@ -2,14 +2,13 @@
 //  GoalCell.swift
 //  goalpost-app
 //
-//  Created by Hovhannes Mikayelyan on 5/30/22.
-//  Copyright © 2022 Hovhannes Mikayelyan. All rights reserved.
+//  Created by Hovhannes Mikayelyan on 31.08.22.
 //
 
 import UIKit
 
 class GoalCell: UITableViewCell {
-
+    
     @IBOutlet weak var goalDescriptionLbl: UILabel!
     @IBOutlet weak var goalProgressLbl: UILabel!
     @IBOutlet weak var goalTypeLbl: UILabel!
@@ -17,6 +16,7 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var completionView: UIView!
     
     func configureCell(goal: Goal){
+        
         self.goalDescriptionLbl.text = goal.goalDescription
         self.goalTypeLbl.text = goal.goalType
         self.goalProgressLbl.text = String(describing: goal.goalProgress)
@@ -28,5 +28,4 @@ class GoalCell: UITableViewCell {
             self.completionView.isHidden = true
         }
     }
-    
 }

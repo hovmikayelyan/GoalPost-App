@@ -1,21 +1,19 @@
 //
-//  GoalsVC.swift
+//  ViewController.swift
 //  goalpost-app
 //
-//  Created by Hovhannes Mikayelyan on 5/29/22.
-//  Copyright © 2022 Hovhannes Mikayelyan. All rights reserved.
+//  Created by Hovhannes Mikayelyan on 29.08.22.
 //
 
 import UIKit
 import CoreData
 
-
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class GoalsVC: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     @IBOutlet weak var undoView: UIView!
     @IBOutlet weak var undoViewLbl: UILabel!
     
@@ -27,11 +25,12 @@ class GoalsVC: UIViewController {
         tableView.dataSource = self
         tableView.isHidden = false
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchCoreDataObjects()
-        tableView.reloadData()
+        
+        self.tableView.reloadData()
     }
     
     func fetchCoreDataObjects() {
@@ -48,16 +47,19 @@ class GoalsVC: UIViewController {
     }
     
     @IBAction func addGoalBtnWasPressed(_ sender: Any) {
-        guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else { return }
-        presentDetail(createGoalVC)
+        performSegue(withIdentifier: "showCreatePage", sender: nil)
     }
-    
     
     @IBAction func undoBtnWasPressed(_ sender: Any) {
         self.undoManager()
         self.fetchCoreDataObjects()
         self.tableView.reloadData()
     }
+    
+    func shit(){
+        tableView.reloadData()
+    }
+    
 }
 
 extension GoalsVC {
@@ -72,12 +74,11 @@ extension GoalsVC {
         
         self.undoView.isHidden = false
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.undoView.isHidden = true
         }
     }
 }
-
 
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -87,10 +88,13 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
         return goals.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "goalCell") as? GoalCell else { return UITableViewCell()}
-        let goal = goals[indexPath.row]
-        cell.configureCell(goal: goal)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell") as? GoalCell else {
+            return UITableViewCell()
+        }
         
+        let goal = goals[indexPath.row]
+        
+        cell.configureCell(goal: goal)
         return cell
     }
     
@@ -98,11 +102,12 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
             self.removeGoal(atIndexPath: indexPath)
             self.fetchCoreDataObjects()
@@ -121,12 +126,13 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
         
         return [deleteAction, addAction]
     }
+    
 }
 
 extension GoalsVC {
     func setProgress(atIndexPath indexPath: IndexPath){
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
-
+        
         let chosenGoal = goals[indexPath.row]
         
         if chosenGoal.goalProgress < chosenGoal.goalCompletionValue {
@@ -144,12 +150,13 @@ extension GoalsVC {
         
     }
     
+    
     func removeGoal(atIndexPath indexPath: IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         
         managedContext.undoManager = UndoManager()
         managedContext.undoManager?.beginUndoGrouping()
-
+        
         managedContext.delete(goals[indexPath.row])
         
         do {
@@ -176,7 +183,7 @@ extension GoalsVC {
             completion(false)
         }
         
-   
+        
     }
     
     func undoManager() {
@@ -189,13 +196,8 @@ extension GoalsVC {
             self.undoView.isHidden = true
             
         } catch {
-            
             debugPrint("Could not undo :\(error.localizedDescription)")
-            
         }
         
     }
 }
-
-
-

@@ -2,51 +2,64 @@
 //  CreateGoalVC.swift
 //  goalpost-app
 //
-//  Created by Hovhannes Mikayelyan on 6/5/22.
-//  Copyright © 2022 Hovhannes Mikayelyan. All rights reserved.
+//  Created by Hovhannes Mikayelyan on 03.09.22.
 //
 
 import UIKit
 
 class CreateGoalVC: UIViewController, UITextViewDelegate {
-
+    
     @IBOutlet weak var goalTextView: UITextView!
     @IBOutlet weak var shortTermBtn: UIButton!
     @IBOutlet weak var longTermBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     
-    var goalType: GoalType = .shortTerm
+    var _goal = [
+        "type": GoalType.shortTerm,
+        "description": ""
+    ] as [String : Any]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         nextBtn.bindToKeyboard()
         shortTermBtn.setSelectedColor()
         longTermBtn.setDeselectedColor()
+        
         goalTextView.delegate = self
     }
-
+    
+    
     @IBAction func shortTermBtnWasPressed(_ sender: Any) {
-        goalType = .shortTerm
+        _goal["type"] = GoalType.shortTerm
         shortTermBtn.setSelectedColor()
         longTermBtn.setDeselectedColor()
     }
     
     @IBAction func longTermBtnWasPressed(_ sender: Any) {
-        goalType = .longTerm
+        _goal["type"] = GoalType.longTerm
         longTermBtn.setSelectedColor()
         shortTermBtn.setDeselectedColor()
     }
     
     @IBAction func nextBtnWasPressed(_ sender: Any) {
         if (goalTextView.text != "" && goalTextView.text != "What is your goal?") {
-            guard let finishGoalVC = storyboard?.instantiateViewController(withIdentifier: "FinishGoalVC") as? FinishGoalVC else { return }
-            finishGoalVC.initData(description: goalTextView.text!, type: goalType)
-            presentingViewController?.presentSecondaryDetail(finishGoalVC)
+            _goal["description"] = String(describing: goalTextView.text!)
+            performSegue(withIdentifier: "showPointsPage", sender: _goal)
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let finishGoalVC = segue.destination as? FinishGoalVC {
+            assert(sender as? [String : Any] != nil)
+            
+            finishGoalVC.initData(_goal: _goal)
+        }
+    }
+    
+    
     @IBAction func backBtnWasPressed(_ sender: Any) {
-       dismissDetail()
+        dismiss(animated: true)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

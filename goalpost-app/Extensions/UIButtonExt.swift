@@ -2,17 +2,16 @@
 //  UIButtonExt.swift
 //  goalpost-app
 //
-//  Created by Hovhannes Mikayelyan on 6/6/22.
-//  Copyright © 2022 Hovhannes Mikayelyan. All rights reserved.
+//  Created by Hovhannes Mikayelyan on 03.09.22.
 //
 
 import UIKit
 
-extension UIButton{
+extension UIButton {
     func setSelectedColor() {
-        self.backgroundColor = #colorLiteral(red: 0.4274509804, green: 0.737254902, blue: 0.3882352941, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.3882352941, green: 0.9019607843, blue: 0.8862745098, alpha: 1)
     }
     func setDeselectedColor(){
-          self.backgroundColor = #colorLiteral(red: 0.6980392157, green: 0.8666666667, blue: 0.6862745098, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0, green: 0.7803921569, blue: 0.7450980392, alpha: 0.2464734008)
     }
 }

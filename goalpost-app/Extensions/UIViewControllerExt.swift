@@ -2,18 +2,17 @@
 //  UIViewControllerExt.swift
 //  goalpost-app
 //
-//  Created by Hovhannes Mikayelyan on 6/6/22.
-//  Copyright © 2022 Hovhannes Mikayelyan. All rights reserved.
+//  Created by Hovhannes Mikayelyan on 03.09.22.
 //
 
 import UIKit
 
 extension UIViewController {
-    func presentDetail(_ viewControllerToPresent: UIViewController){
+    func presentDetail(_ viewControllerToPresent: UIViewController) {
         let transition = CATransition()
-        transition.duration = 3.0
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
         self.view.window?.layer.add(transition, forKey: kCATransition)
         
         present(viewControllerToPresent, animated: false, completion: nil)
@@ -21,9 +20,9 @@ extension UIViewController {
     
     func presentSecondaryDetail(_ viewControllerToPresent: UIViewController){
         let transition = CATransition()
-        transition.duration = 3.0
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
         
         guard let presentedViewController = presentedViewController else { return }
         
@@ -35,12 +34,11 @@ extension UIViewController {
     
     func dismissDetail() {
         let transition = CATransition()
-        transition.duration = 3.0
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
         self.view.window?.layer.add(transition, forKey: kCATransition)
         
         dismiss(animated: false, completion: nil)
-        
     }
 }
