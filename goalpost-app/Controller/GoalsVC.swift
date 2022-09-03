@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GoalsVC.swift
 //  goalpost-app
 //
 //  Created by Hovhannes Mikayelyan on 29.08.22.
