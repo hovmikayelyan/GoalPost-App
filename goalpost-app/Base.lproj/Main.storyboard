@@ -275,13 +275,22 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bB5-LL-jQ5">
-                                        <rect key="frame" x="15" y="40.333333333333336" width="38" height="39.000000000000007"/>
+                                        <rect key="frame" x="15.000000000000004" y="44.333333333333336" width="46.333333333333343" height="30.666666666666664"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="back">
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward" catalog="system">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="backBtnWasPressed:" destination="cO6-mn-m1v" eventType="touchUpInside" id="dic-ff-T6d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXY-iN-aTI">
+                                        <rect key="frame" x="308.33333333333331" y="44.333333333333336" width="51.666666666666686" height="30.666666666666664"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.bounce.right.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="nextBtnWasPressed:" destination="cO6-mn-m1v" eventType="touchUpInside" id="7sC-7g-u2H"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -292,6 +301,8 @@
                                     <constraint firstAttribute="bottom" secondItem="QvJ-Hj-ZWi" secondAttribute="bottom" constant="8" id="OC6-tj-ZW2"/>
                                     <constraint firstAttribute="height" constant="80" id="cqI-7I-C0s"/>
                                     <constraint firstItem="bB5-LL-jQ5" firstAttribute="centerY" secondItem="QvJ-Hj-ZWi" secondAttribute="centerY" id="dXo-ar-ENz"/>
+                                    <constraint firstAttribute="trailing" secondItem="EXY-iN-aTI" secondAttribute="trailing" constant="15" id="qqG-Hj-2IZ"/>
+                                    <constraint firstItem="EXY-iN-aTI" firstAttribute="centerY" secondItem="QvJ-Hj-ZWi" secondAttribute="centerY" id="yYc-cu-Pdc"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vI2-VQ-Cn1">
@@ -347,21 +358,6 @@
                                     <constraint firstAttribute="height" constant="280" id="xqT-1X-KW4"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXY-iN-aTI">
-                                <rect key="frame" x="0.0" y="728" width="375" height="50"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="vNq-fZ-gpE"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="NEXT">
-                                    <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="nextBtnWasPressed:" destination="cO6-mn-m1v" eventType="touchUpInside" id="7sC-7g-u2H"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1gV-NK-3RI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -370,9 +366,6 @@
                             <constraint firstItem="1gV-NK-3RI" firstAttribute="trailing" secondItem="GBt-cY-rKt" secondAttribute="trailing" id="8an-xG-uF2"/>
                             <constraint firstItem="GBt-cY-rKt" firstAttribute="top" secondItem="Tgf-Bg-5ka" secondAttribute="top" id="Mup-NA-bWa"/>
                             <constraint firstItem="vI2-VQ-Cn1" firstAttribute="top" secondItem="GBt-cY-rKt" secondAttribute="bottom" constant="20" id="Pvj-WP-dKs"/>
-                            <constraint firstItem="EXY-iN-aTI" firstAttribute="leading" secondItem="1gV-NK-3RI" secondAttribute="leading" id="V8X-yZ-xVI"/>
-                            <constraint firstItem="EXY-iN-aTI" firstAttribute="trailing" secondItem="1gV-NK-3RI" secondAttribute="trailing" id="bVs-JU-HYK"/>
-                            <constraint firstItem="1gV-NK-3RI" firstAttribute="bottom" secondItem="EXY-iN-aTI" secondAttribute="bottom" id="g3Q-1s-OXd"/>
                             <constraint firstItem="GBt-cY-rKt" firstAttribute="leading" secondItem="Tgf-Bg-5ka" secondAttribute="leading" id="n9z-g2-7Mn"/>
                             <constraint firstItem="vI2-VQ-Cn1" firstAttribute="leading" secondItem="1gV-NK-3RI" secondAttribute="leading" constant="20" id="y7I-q1-in2"/>
                         </constraints>
@@ -423,22 +416,33 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvt-fP-AXp">
-                                        <rect key="frame" x="15" y="40.333333333333336" width="38" height="39.000000000000007"/>
+                                        <rect key="frame" x="15.000000000000004" y="44.333333333333336" width="46.333333333333343" height="30.666666666666664"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="back">
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.backward" catalog="system">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="backBtnWasPressed:" destination="Hgo-qd-hPi" eventType="touchUpInside" id="ZDK-ZF-C0q"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-cZ-S0M">
+                                        <rect key="frame" x="310.33333333333331" y="44.333333333333336" width="49.666666666666686" height="30.666666666666664"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="checkmark.rectangle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="createGoalBtnWasPressed:" destination="Hgo-qd-hPi" eventType="touchUpInside" id="7w2-og-XPE"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstItem="cGj-4f-9MI" firstAttribute="centerX" secondItem="A2e-LN-1NP" secondAttribute="centerX" id="3tJ-MY-ckz"/>
+                                    <constraint firstItem="Jcm-cZ-S0M" firstAttribute="centerY" secondItem="cGj-4f-9MI" secondAttribute="centerY" id="9Jc-YY-8ud"/>
                                     <constraint firstItem="rvt-fP-AXp" firstAttribute="leading" secondItem="A2e-LN-1NP" secondAttribute="leading" constant="15" id="Wxf-ro-x29"/>
                                     <constraint firstItem="rvt-fP-AXp" firstAttribute="centerY" secondItem="cGj-4f-9MI" secondAttribute="centerY" id="jwF-Zx-Not"/>
                                     <constraint firstAttribute="bottom" secondItem="cGj-4f-9MI" secondAttribute="bottom" constant="8" id="lpt-wd-YIF"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jcm-cZ-S0M" secondAttribute="trailing" constant="15" id="m9V-Vv-p4t"/>
                                     <constraint firstAttribute="height" constant="80" id="zPJ-OP-cUI"/>
                                 </constraints>
                             </view>
@@ -467,29 +471,7 @@
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igk-hY-KxI">
                                 <rect key="frame" x="0.0" y="228" width="375" height="530"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-cZ-S0M">
-                                        <rect key="frame" x="0.0" y="480" width="375" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="eOc-Im-5aq"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="CREATE GOAL">
-                                            <fontDescription key="titleFontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="createGoalBtnWasPressed:" destination="Hgo-qd-hPi" eventType="touchUpInside" id="7w2-og-XPE"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="Jcm-cZ-S0M" firstAttribute="leading" secondItem="igk-hY-KxI" secondAttribute="leading" id="MOx-6t-Hft"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jcm-cZ-S0M" secondAttribute="trailing" id="W9B-wN-Y5x"/>
-                                    <constraint firstAttribute="bottom" secondItem="Jcm-cZ-S0M" secondAttribute="bottom" id="bwD-4F-RpW"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mzh-Qs-vTI"/>
@@ -520,7 +502,9 @@
     </scenes>
     <resources>
         <image name="addGoal" width="35" height="32"/>
-        <image name="back" width="14" height="25"/>
+        <image name="arrowshape.bounce.right.fill" catalog="system" width="128" height="86"/>
+        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="106"/>
+        <image name="checkmark.rectangle.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -532,9 +516,6 @@
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

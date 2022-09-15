@@ -22,7 +22,7 @@ class CreateGoalVC: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nextBtn.bindToKeyboard()
+//        nextBtn.bindToKeyboard()
         shortTermBtn.setSelectedColor()
         longTermBtn.setDeselectedColor()
         

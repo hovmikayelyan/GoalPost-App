@@ -23,7 +23,7 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createGoalBtn.bindToKeyboard()
+//        createGoalBtn.bindToKeyboard()
         pointsTextField.delegate = self
     }
     
